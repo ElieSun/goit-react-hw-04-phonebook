@@ -1,20 +1,19 @@
-import { Component } from 'react'
+
 import PropTypes from 'prop-types';
 import { Item, Button } from 'components/ContactListItem/ContactListItem.styled'
 
-export class ContactListItem extends Component {
-    render() {
+export default function ContactListItem ({ contact, deleteContact }) {
+
         return (
             <>
                 <Item>
-                    <span>{this.props.contact.name}: {this.props.contact.number} </span>
-                    <Button  type="button" onClick={this.props.deleteContact}>Delete</Button>
+                    <span>{contact.name}: {contact.number} </span>
+                    <Button  type="button" onClick={deleteContact}>Delete</Button>
                 </Item>
             </>
         );
     }
 
-}
 
 ContactListItem.propTypes = {
     contact: PropTypes.shape({

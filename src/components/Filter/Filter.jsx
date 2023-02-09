@@ -1,27 +1,25 @@
-import { Component } from "react";
 import PropTypes from 'prop-types';
 import { Input } from 'components/Filter/Filter.styled'
 
-export class Filter extends Component {
+
+export default function Filter({ filter, filterContact }){
     
-    handleChange = evt => {
+    const handleChange = evt => {
         const {value} = evt.currentTarget;
-        this.props.filterContact(value);
+        filterContact(value);
     };
 
-    render() {
-        return(
-    <>
-    <Input
-    type="text"
-    name="filter"
-    value={this.props.filter}
-    onChange={this.handleChange}
-    placeholder='Search...'
-    />
-    </>
-        )
-    }
+    return(
+        <>
+        <Input
+            type="text"
+            name="filter"
+            value={filter}
+            onChange={handleChange}
+            placeholder='Search...'
+        />
+        </>
+    )
 }
 
 Filter.propTypes = {
